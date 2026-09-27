@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="16" height="16"
+     viewBox="0 0 16 16">
+
+    <!-- document -->
+    <path fill="#F8F8F8" stroke="#6E6E6E" stroke-width="0.8"
+          d="M3 1.5h6.5L13 5v9.5H3z"/>
+    <path fill="#E6E6E6"
+          d="M9.5 1.5V5H13z"/>
+
+    <!-- Step Functions -->
+    <g fill="none" stroke="#FF9900" stroke-width="1"
+       stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="5" cy="5.3" r="0.6" fill="#FF9900"/>
+        <rect x="8" y="4.7" width="1.2" height="1.2" rx="0.2" fill="#FF9900"/>
+        <circle cx="11" cy="7.8" r="0.6"/>
+        <path d="M5.6 5.3H8"/>
+        <path d="M8.6 5.9V7.2"/>
+        <path d="M9.2 7.8H10.4"/>
+    </g>
+
+    <!-- ASL -->
+    <rect x="3" y="10" width="10" height="3" fill="#2563EB"/>
+    <text x="8" y="12.3"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="2.8"
+          font-weight="700"
+          fill="white">ASL</text>
+
+</svg>

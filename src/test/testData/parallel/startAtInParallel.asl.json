@@ -1,0 +1,47 @@
+{
+  "StartAt": "",
+  "States": {
+    "level1Task1": {
+      "Type": "Task"
+    },
+    "level1Task2": {
+      "Type": "Task"
+    },
+    "level1Parallel": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "<caret>",
+          "States": {
+            "level1A": {
+              "Type": "Task",
+              "Next": "level1B"
+            },
+            "level1B": {
+              "Type": "Task"
+            },
+            "level1C": {
+              "Type": "Task"
+            }
+          }
+        },
+
+        {
+          "StartAt": "level1A_",
+          "States": {
+            "level1A_": {
+              "Type": "Task",
+              "Next": "level1B_"
+            },
+            "level1B_": {
+              "Type": "Task"
+            },
+            "level1C_": {
+              "Type": "Task"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

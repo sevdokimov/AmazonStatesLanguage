@@ -1,0 +1,64 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.ess.AmazonStatesLanguage</id>
+
+    <!-- Public plugin name should be written in Title Case.
+     Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>Amazon States Language</name>
+
+    <vendor email="sergey.evdokimov85@gmail.com">Sergey Evdokimov</vendor>
+
+    <idea-version since-build="243"/>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+Adds support for Amazon States Language in <code>*.asl.json</code> files.
+
+<ul>
+    <li>Injects JSONPath language into string literals containing JSONPath expressions</li>
+    <li>Injects JSONata language into string literals containing JSONata expressions</li>
+    <li>Provides references for state names used in properties such as <code>StartAt</code> and <code>Next</code></li>
+    <li>Provides code completion for property names in state definitions</li>
+</ul>
+        ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.json</depends>
+    <depends>com.intellij.jsonpath</depends>
+    <depends>cz.tix.jsonata</depends>
+
+    <!-- Extensions defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <psi.referenceContributor implementation="com.ess.asl.AslReferenceContributor" language="JSON"/>
+        <completion.contributor implementationClass="com.ess.asl.AslCompletionContributor" language="JSON" />
+        <multiHostInjector implementation="com.ess.asl.AslLanguageInjector"/>
+
+        <fileType name="ASL Intrinsic Language File"
+                  implementationClass="com.ess.asl.ilang.IlangFileType"
+                  fieldName="INSTANCE"
+                  extensions="asl_ilang"
+                  language="AslIntrinsic"
+        />
+
+        <lang.parserDefinition language="AslIntrinsic"
+                               implementationClass="com.ess.asl.ilang.ILangParserDefinition" />
+
+        <lang.syntaxHighlighterFactory
+                language="AslIntrinsic"
+                implementationClass="com.ess.asl.ilang.ILangSyntaxHighlighterFactory"/>
+
+        <lang.braceMatcher
+                language="AslIntrinsic"
+                implementationClass="com.ess.asl.ilang.ILangPairedBraceMatcher"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="JavaScript.JsonSchema">
+        <ProviderFactory implementation="com.ess.asl.AslSchemaProviderFactory"/>
+    </extensions>
+
+</idea-plugin>

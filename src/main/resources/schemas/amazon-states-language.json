@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+
+  "type": "object",
+  
+  "properties": {
+    "StartAt": {
+      "type": "string",
+      "description": "The name of the first state."
+    },
+
+    "QueryLanguage": {
+      "type": "string",
+      "enum": [
+        "JSONPath",
+        "JSONata"
+      ]
+    },
+
+    "States": {
+      "type": "object"
+    },
+    
+    "Comment": {
+      "type": "string"
+    },
+
+    "Version": {
+      "type": "string"
+    },
+
+    "TimeoutSeconds": {
+      "type": "integer"
+    }
+  },
+
+  "required": [
+    "StartAt",
+    "States"
+  ],
+
+  "additionalProperties": false
+}

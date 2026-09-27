@@ -1,0 +1,20 @@
+{
+  "StartAt": "",
+  "QueryLanguage": "JSONata",
+  "States": {
+    "level1Parallel": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "A",
+          "States": {
+            "A": {
+              "Type": "Task",
+              "<caret>"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

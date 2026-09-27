@@ -1,0 +1,25 @@
+{
+  parserClass="com.ess.asl.ilang.ILangParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="ILang"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.ess.asl.ilang.psi"
+  psiImplPackage="com.ess.asl.ilang.impl"
+
+  elementTypeHolderClass="com.ess.asl.ilang.psi.ILangTypes"
+  elementTypeClass="com.ess.asl.ilang.ILangElementType"
+  tokenTypeClass="com.ess.asl.ilang.ILangTokenType"
+}
+
+root ::= methodCall
+
+methodCall ::= IDENTIFIER LPAREN ((param COMMA)* param)? RPAREN
+
+path ::= PATH_ITEM+ {
+    implements="com.intellij.psi.PsiLanguageInjectionHost"
+    mixin="com.ess.asl.ilang.ILangPathImplMixin"
+}
+
+param ::= STRING_LITERAL | NUMBER | NULL  | path | methodCall

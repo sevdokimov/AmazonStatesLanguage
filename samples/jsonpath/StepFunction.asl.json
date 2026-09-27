@@ -1,0 +1,22 @@
+{
+  "Comment": "This is your state machine",
+  "StartAt": "invocation type",
+  "States": {
+    "invocation type": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "foo.sadasd($['sdfsdfs'],  100, 'asdasdsadsad')",
+          "IsPresent": false,
+          "Next":"Not a user event"
+
+        }
+      ],
+      "Default": "Builder event"
+    },
+    "sdasdasd": {
+      "Type": "Task",
+      "TimeoutSecondsPath": "$.aaa[?(@.x>'sdsdasd')]"
+    }
+  }
+}
